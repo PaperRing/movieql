@@ -1,16 +1,12 @@
 type Movie {
   id: Int!
-  name: String!
-  score: Int!
+  title: String!
+  rating: Float!
+  summary: String!
+  language: String!
+  medium_cover_image: String!
 }
 
 type Query {
-  movies: [Movie]!
-  movie(id: Int!): Movie
-}
-
-#데이터베이스의 상태가 변할때 쓰는것
-type Mutation {
-  addMovie(name: String!, score: Int!): Movie
-  deleteMovie(id: Int!): Boolean!
+  movies(limit: Int, rating: Float): [Movie]!
 }
